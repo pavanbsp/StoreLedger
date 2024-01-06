@@ -6,6 +6,7 @@ import com.jar.storeLedger.service.KiranaStoreService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class AdminController {
 
     KiranaStoreService kiranaStoreService;
 
+    @PreAuthorize("@permissionService.verifyAdminAccess()")
     @PostMapping("add/store")
     public KiranaStoreResponse addStore(@RequestBody KiranaStoreRequest kiranaStoreRequest) {
         return kiranaStoreService.addKiranaStore(kiranaStoreRequest);

@@ -33,7 +33,7 @@ public class SecurityConfig extends GlobalMethodSecurityConfiguration {
         http.authorizeRequests()
                 .antMatchers("/auth/login/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority(String.valueOf(Role.ADMIN))
-                .antMatchers("/transaction").hasAuthority(String.valueOf(Role.STORE_USER)).and()
+                .antMatchers("/transaction/**").hasAuthority(String.valueOf(Role.STORE_USER)).and()
                 .csrf().disable()
                 .cors();
         return http.build();

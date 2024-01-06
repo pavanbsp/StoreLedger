@@ -8,7 +8,6 @@ import java.time.ZonedDateTime;
 
 public class TransactionMapper {
 
-
     public static Transaction convertToTransaction(TransactionRequest request, Long kiranaStoreId) {
         Transaction transaction = new Transaction();
         transaction.setTransactionAmount(request.getTransactionAmount());

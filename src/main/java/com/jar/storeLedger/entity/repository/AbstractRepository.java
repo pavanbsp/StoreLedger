@@ -18,6 +18,10 @@ public abstract class AbstractRepository<T> {
         this.clazz = clazz;
     }
 
+    protected TypedQuery<T> createJpqlQuery(String query) {
+        return em.createQuery(query, clazz);
+    }
+
     @Transactional(readOnly = true)
     public void save(T t) {
         em.persist(t);
