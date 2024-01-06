@@ -52,7 +52,7 @@ public class LoginService {
         LoginResponse response = new LoginResponse();
         response.setMobile(request.getMobile());
         if (user.getRole() == Role.STORE_USER) {
-            KiranaStore kiranaStore = kiranaStoreRepository.select("mobile", request.getMobile());
+            KiranaStore kiranaStore = kiranaStoreRepository.getByMobile(request.getMobile());
             response.setKiranaStoreId(kiranaStore.getId());
         }
         return response;
@@ -71,10 +71,7 @@ public class LoginService {
         if (isAdmin(mobile)) {
             return;
         }
-        KiranaStore kiranaStore = kiranaStoreRepository.select("mobile", mobile);
-        if (kiranaStore == null) {
-            throw new ApiException("No kirana store exists with the mobile number", ErrorCode.NOT_FOUND);
-        }
+        kiranaStoreRepository.getByMobile(mobile);
     }
 
     private User createOrGetUser(String mobile) {

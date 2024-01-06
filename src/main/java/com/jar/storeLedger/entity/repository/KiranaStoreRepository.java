@@ -20,4 +20,12 @@ public class KiranaStoreRepository extends AbstractRepository<KiranaStore> {
         return kiranaStore;
     }
 
+    public KiranaStore getByMobile(String mobile) throws ApiException {
+        KiranaStore kiranaStore = select("mobile", mobile);
+        if (kiranaStore == null) {
+            throw new ApiException("No kirana store exists with the mobile number", ErrorCode.NOT_FOUND);
+        }
+        return kiranaStore;
+    }
+
 }
