@@ -1,0 +1,8 @@
+"transactionId","transactionDate","transactionAmount","transactionType","currency","description","Amount(INR)"
+"3","2024-01-06T19:54:46+05:30[Asia/Calcutta]","1.99","DEBIT","USD","subscription","165.324799183655"
+"2","2024-01-06T19:54:23+05:30[Asia/Calcutta]","1200.0","CREDIT","INR","rice","1200.0"
+"1","2024-01-06T19:51:25+05:30[Asia/Calcutta]","4.78","DEBIT","USD","9860","397.11182919491"
+
+"Total Credit Amount","","1200.0","","",""
+"Total Debit Amount","","562.436628378565","","",""
+"Net Amount","","637.563371621435","","",""

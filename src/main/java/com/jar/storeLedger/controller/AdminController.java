@@ -20,6 +20,12 @@ public class AdminController {
 
     KiranaStoreService kiranaStoreService;
 
+    /**
+     * Endpoint to add a new Kirana store.
+     *
+     * @param kiranaStoreRequest The request containing details of the Kirana store to be added.
+     * @return A response containing details of the added Kirana store.
+     */
     @PreAuthorize("@permissionService.verifyAdminAccess()")
     @PostMapping("add/store")
     public KiranaStoreResponse addStore(@RequestBody KiranaStoreRequest kiranaStoreRequest) {
