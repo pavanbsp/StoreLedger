@@ -45,7 +45,7 @@ public class LoginService {
         checkIfKiranaStoreExists(request.getMobile());
         User user = createOrGetUser(request.getMobile());
         if (!Objects.equals(user.getOtp(), request.getOtp())) {
-            throw new ApiException("Invalid OTP", ErrorCode.BAD_REQUEST);
+            throw new ApiException("Invalid OTP", ErrorCode.UNAUTHORISED);
         }
         setAuthentication(user);
 
